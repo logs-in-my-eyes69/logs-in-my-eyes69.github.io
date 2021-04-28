@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<title>scene2</title>
+
+	<head>
+		<style>
+			#title {
+				background-color: rgb(18, 130, 76);
+				color: white;
+				position: absolute;
+				left: 110px;
+				top: 10px;
+				padding-left: 430px;
+				padding-right: 430px;
+				height: 800px;
+				padding-top: 20px;
+				margin-top: 0px;	
+				font-size: 70px;
+			}
+
+			#back-button {
+				position: absolute;
+				background-color: rgb(140, 129, 129);
+				color: white;
+				width: 150px;
+				height: 100px;
+				left: 120px;
+				top: 20px;
+				font-size: 40px;
+			}
+
+			#next-button {
+				position: absolute;
+				background-color: rgb(140, 129, 129);
+				color: white;
+				width: 150px;
+				height: 100px;
+				left: 1170px;
+				top: 20px;
+				font-size: 40px;
+			}
+
+			#Instructions {
+				position: absolute;
+				left: 500px;
+				top: 200px;
+			}
+
+			#useless-button {
+				position: absolute;
+				left: 650px;
+				top: 500px;
+				background-color: rgb(155, 155, 155);
+				width: 100px;
+				height: 100px;
+			}
+
+			#times-clicked {
+				position: absolute;
+				left: 650px;
+				top: 600px;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<h1 id="title">Instructions</h1>
+
+		<a href="index.html"><button id="back-button">Back</button></a>
+		<a href="frame3.html"><button id="next-button">Next</button></a>
+
+
+		<button id="useless-button">Useless Button</button>
+		<h2 id="times-clicked"></h2>
+
+		<h2 id="Instructions">*press and hold the mouse to draw<br><br>*WARNING: the paint position may not always be relative to your mouse!</h2>
+
+		<script type="text/javascript">
+			var backButton = document.getElementById("back-button");
+			var backButtonColor = document.querySelector("#back-button");
+
+			var nextButton = document.getElementById("next-button");
+			var nextButtonColor = document.querySelector("#next-button");
+
+			var changeBackButtonColor = function(mouseEvent) {
+				console.log(mouseEvent);
+
+				backButtonColor.style.backgroundColor = "rgb(160, 159, 159)";
+
+			}
+
+			var backButtonLeave = function(mouseEvent) {
+				backButtonColor.style.backgroundColor = "rgb(140, 129, 129)";
+			}
+
+			var changeNextButtonColor = function(mouseEvent) {
+				console.log(mouseEvent);
+
+				nextButtonColor.style.backgroundColor = "rgb(160, 159, 159)";
+			}
+
+			var nextButtonLeave = function(mouseEvent) {
+				nextButton.style.backgroundColor = "rgb(140, 129, 129)";
+			}
+
+
+
+
+
+			backButton.addEventListener("mouseover", changeBackButtonColor);
+			backButton.addEventListener("mouseleave", backButtonLeave);
+			nextButton.addEventListener("mouseover", changeNextButtonColor);
+			nextButton.addEventListener("mouseleave", nextButtonLeave);
+
+
+
+			var uselessButton = document.getElementById("useless-button");
+
+			var mouseOverUselessButton = function(event) {
+				uselessButton.style.backgroundColor = "rgb(185, 185, 185)";
+			}
+
+			var mouseLeaveUselessButton = function(event) {
+				uselessButton.style.backgroundColor = "rgb(155, 155, 155)";
+			}
+
+			uselessButton.addEventListener("mouseover", mouseOverUselessButton);
+			uselessButton.addEventListener("mouseleave", mouseLeaveUselessButton);
+
+			var clickedCounter = document.getElementById("times-clicked");
+
+			var timesClicked = 0;
+
+			var timesClickedUp = function(event) {
+				timesClicked ++;
+			}
+
+			var timesClickedShow = function(event) {
+				clickedCounter.innerHTML = "times clicked: " + timesClicked;
+			}
+
+			uselessButton.addEventListener("click", timesClickedUp);
+			uselessButton.addEventListener("click", timesClickedShow);
+			window.addEventListener("load", timesClickedShow);
+
+			
+			
+		</script>
+	</body>
+	
+</html>

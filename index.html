@@ -1,0 +1,109 @@
+<!--Make a button that goes from one file to another-->
+<!DOCTYPE HTML>
+
+<html lang="en">
+<title>scene1</title>
+	<head>
+		<style>
+			#title-back {
+				color: black;
+				background-color: rgb(65, 185, 201);
+				position: absolute;
+				left: 110px;
+				top: 10px;
+				padding-left: 250px;
+				padding-right: 250px;
+				height: 800px;
+				padding-top: 20px;
+				margin-top: 0px;	
+				font-size: 50px;		
+			}
+
+			#start-back {
+				background-color: rgb(0, 0, 185);
+				position: absolute;
+				width: 250px;
+				height: 180px;
+				left: 600px;
+				top: 260px;
+
+			}
+
+			#start-text {
+				font-size: 50px;
+				color: rgb(255, 255, 255);
+				position: absolute;
+				left: 60px;
+				top: 60px;
+
+
+			}
+
+			#updates-back {
+				background-color: rgb(20, 189, 98);
+				position: absolute;
+				width: 250px;
+				height: 180px;
+				left: 600px;
+				top: 550px;
+			}
+
+			#updates-text {
+				font-size: 50px;
+				color: rgb(255, 255, 255);
+				position: absolute;
+				left: 40px;
+				top: 60px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h1 id="title-back">Drawing Program (Web Version)</h1>
+		<a href="frame2.html"><button id="start-back"><spread id="start-text">Start!</spread></button></a>
+		<a href="frame4.html"><button id="updates-back"><spread id="updates-text">Updates</spread></button></a>
+
+
+
+
+		<script type="text/javascript">
+			var startButton = document.getElementById("start-back");
+			var startButtonColor = document.querySelector("#start-back");
+
+			var updateButton = document.getElementById("updates-back");
+			var updateButtonColor = document.querySelector("#updates-back");
+
+			var changeStartButtonColor = function(mouseEvent) {
+				console.log(mouseEvent);
+
+				startButtonColor.style.backgroundColor = "rgb(0, 0, 200)";
+				
+			};
+
+			var mouseLeaveStart = function() {
+				startButtonColor.style.backgroundColor = "rgb(0, 0, 155)";
+			}
+
+
+
+			var changeUpdateButtonColor = function(mouseEvent) {
+				console.log(mouseEvent);
+
+				updateButtonColor.style.backgroundColor = "rgb(50, 219, 128)";
+
+			}
+
+			var mouseLeaveUpdate = function(mouseEvent) {
+
+				updateButtonColor.style.backgroundColor = "rgb(20, 189, 98)";
+			}
+			
+
+			startButton.addEventListener("mouseover", changeStartButtonColor);
+			startButton.addEventListener("mouseleave", mouseLeaveStart);
+			updateButton.addEventListener("mouseover", changeUpdateButtonColor);
+			updateButton.addEventListener("mouseleave", mouseLeaveUpdate);
+		</script>
+	</body>
+</html>

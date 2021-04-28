@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<title>update log</title>
+	<head>
+		<title>update log</title>
+
+		<style>
+			#title {
+				font-size: 50px;
+				position: absolute;
+				top: 20px;
+				left: 100px;
+				background-color: rgb(250, 150, 100);
+				padding-top: 105px;
+				width: 300px;
+				height: 800px;
+				padding-left: 450px;
+				padding-right: 450px;
+				margin-top: 0px;
+			}
+
+			#back-button {
+				font-size: 20px;
+				background-color: rgb(169, 200, 300);
+				position: absolute;
+				left: 120px;
+				top: 40px;
+				width: 150px;
+				height: 90px;
+			}
+
+			#description {
+				position: absolute;
+				width: 700px;
+				left: 400px;
+				top: 320px;
+				font-size: 40px;
+
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h1 id="title">Update Log <br> v 0.2</h1>
+		<a href="index.html"><button id="back-button">Back</button></a>
+		<h2 id="description"><strong>Added custom colour buttons, eraser buttons and draw buttons. Also added custom paintbrush/eraser size buttons. Shape presets will be added in v 0.3. (Feature delay may happen and features might be moved to the next update)<br><br> IMPORTANT: I will not be updating the p5.js version as frequently anymore!<br><br><br>v 0.3 coming soon!</strong></h2>
+
+		<script>
+			var button = document.getElementById("back-button");
+			var buttonColor = document.querySelector("#back-button");
+
+			var changeButtonColor = function(mouseEvent) {
+				console.log(mouseEvent);
+
+
+				buttonColor.style.backgroundColor = "rgb(199, 230, 330)";
+				
+			};
+
+			var mouseLeave = function() {
+				buttonColor.style.backgroundColor = "rgb(169, 200, 300)";
+			}
+			
+
+			button.addEventListener("mouseover", changeButtonColor);
+			button.addEventListener("mouseleave", mouseLeave);
+
+
+
+		</script>
+	</body>
+</html> 
+
