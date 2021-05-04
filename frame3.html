@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<head>
 		<style>
+			#canvas {
+				background-color: white;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: rgb(255, 255, 255);
+			}
 
-			#widthUpButton {
+			#sizeUpButton {
 				background-color: rgb(0, 200, 0);
 				width: 40px; 
 				height: 40px;
@@ -16,7 +25,7 @@
 				font-size: 10px;
 			}
 
-			#widthDownButton {
+			#sizeDownButton {
 				background-color: rgb(200, 0, 0);
 				width: 40px;
 				height: 40px;
@@ -26,24 +35,18 @@
 				font-size: 10px;
 			}
 
-			#heightUpButton {
-				background-color: rgb(0, 200, 0);
-				width: 40px;
-				height: 40px;
+			#width-counter {
 				position: absolute;
-				left: 1100px;
-				top: 10px;
-				font-size: 10px;
+				left: 50px;
+				top: 400px;
+				font-size: 40px;
 			}
 
-			#heightDownButton {
-				background-color: rgb(200, 0, 0);
-				width: 40px;
-				height: 40px;
+			#height-counter {
 				position: absolute;
-				left: 1100px;
-				top: 60px;
-				font-size: 10px;
+				left: 50px;
+				top: 450px;
+				font-size: 40px;
 			}
 
 			#left-side-outline {
@@ -90,15 +93,6 @@
 				margin: 0px;
 			}
 
-			#canvas {
-				background-color: white;
-				position: absolute;
-				left: 440px;
-				top: 115px;
-				width: 840px;
-				height: 520px;
-			}
-
 			#back-button {
 				background-color: rgb(185, 0, 0);
 				color: white;
@@ -110,26 +104,12 @@
 				top: 10px;
 			}
 
-			#heightCounter {
-				font-size: 50px;
-				color: black;
-				position: absolute;
-				left: 50px;
-				top: 360px;
-			}
-
-			#widthCounter {
+			#sizeCounter {
 				font-size: 50px;
 				color: black;
 				position: absolute;
 				left: 50px;
 				top: 480px;
-			}
-
-			#drawCircle {
-				background-color: rgb(0, 0, 0);
-				border-radius: 50%;
-				position: absolute;
 			}
 
 			body {
@@ -243,9 +223,121 @@
 				font-size: 10px;
 			}
 
-			body {
-				position: fixed;
+			/*#text-box {
+				resize: both;
+				display: block;
+				position: absolute;
+				width: 70px;
+				min-width: 70px;
+				max-width: 800px;
+				border: 2px;
+				left: 450px;
+				top: 125px;
 				background-color: rgb(155, 155, 155);
+			}*/
+
+			#circle-button {
+				position: absolute;
+				background-color: rgb(210, 155, 0);
+				width: 35px;
+				height: 35px;
+				left: 900px;
+				top: 10px;
+			}
+
+			#square-button {
+				position: absolute;
+				background-color: rgb(50, 100, 185);
+				width: 35px;
+				height: 35px;
+				left: 955px;
+				top: 10px;
+				font-size: 20px;
+			}
+
+			/*#triangle-button {
+				position: absolute;
+				background-color: rgb(0, 185, 185);
+				width: 35px;
+				height: 35px;
+				left: 900px;
+				top: 60px;
+				font-size: 20px;
+			}
+
+			#heart-button {
+				position: absolute;
+				background-color: rgb(185, 50, 50);
+				width: 35px;
+				height: 35px;
+				left: 955px;
+				top: 60px;
+				font-size: 20px;
+			}*/
+
+			#drawCircle {
+				border-radius: 50%;
+				position: absolute;
+				width: 10px;
+				height: 10px;
+			}
+
+			#drawSquare {
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				left: 500px;
+				top: 300px;
+				background-color: rgb(0, 0, 0);
+				  
+			}
+
+			/*#drawTriangle {
+				width: 10;
+				height: 10;
+				border-left: 25px solid transparent;
+				border-right: 25px solid transparent;
+				border-bottom: 50px solid #555;
+			}*/
+
+			#shape-width-up {
+				position: absolute;
+				background-color: rgb(0, 155, 0);
+				left: 1010px;
+				top: 10px;
+				width: 35px;
+				height: 35px;
+				font-size: 8px;
+			}
+
+			#shape-width-down {
+				position: absolute;
+				background-color: rgb(155, 0, 0);
+				left: 1010px;
+				top: 60px;
+				width: 35px;
+				height: 35px;
+				font-size: 8px;
+			}
+
+			#shape-height-up {
+				position: absolute;
+				background-color: rgb(0, 155, 0);
+				left: 1060px;
+				top: 10px;
+				width: 35px;
+				height: 35px;
+				font-size: 8px;
+			}
+
+			#shape-height-down {
+				position: absolute;
+				background-color: rgb(155, 0, 0);
+				left: 1060px;
+				top: 60px;
+				width: 35px;
+				height: 35px;
+				font-size: 8px;
 			}
 
 
@@ -253,10 +345,15 @@
 	</head>
 
 	<body>
+
 		<canvas id="canvas"></canvas>
 
 		<div id="everything">
-			<p id="background"></p>
+			<!--<div id="drawTriangle"></div>-->
+
+
+			<div id="shapes"></div>
+
 
 			<h1 id="left-side-outline"></h1>
 			<h1 id="right-side-outline"></h1>
@@ -265,15 +362,12 @@
 
 			<span id="drawing"></span>
 
-			<a href="frame2.html"><button id="back-button">Back</button></a>
+			<a id="back-button-link" href=""><button id="back-button">Back</button></a>
+
 
 			<div id="buttons">
-				<button id="widthUpButton">Up Width</button>
-				<button id="widthDownButton">Down Width</button>
-
-				<button id="heightUpButton">Up Height</button>
-				<button id="heightDownButton">Down Height</button>
-
+				<button id="sizeUpButton">Up Size</button>
+				<button id="sizeDownButton">Down Size</button>
 
 				<button id="up-r">Red Up</button>
 				<button id="down-r">Red Down</button>
@@ -288,6 +382,26 @@
 
 				<button id="draw">Draw</button>
 				<button id="erase">Erase</button>
+
+				<button id="shape-width-up">Shape width up</button>
+				<button id="shape-width-down">Shape width down</button>
+				<button id="shape-height-up">Shape height up</button>
+				<button id="shape-height-down">Shape height down</button>
+
+				<div id="shape-buttons">
+
+					<button id="circle-button">◯</button>
+					<button id="square-button">□</button>
+					<!--<button id="triangle-button">△</button>
+					<button id="heart-button">♡</button>>-->
+
+				</div>
+
+
+			<!--	<div id="text-boxes">
+					
+				</div> -->
+
 			</div>
 
 			<p id="color-preview"></p>
@@ -295,99 +409,63 @@
 		</div>
 
 
-
 		<script type="text/javascript">
+
 			//on button variable 
 			var onButtons = false;
 
+
+
 			//getting all the width and height button
-			var widthUpButton = document.getElementById("widthUpButton");
-			var widthUpButtonColor = document.querySelector("#widthUpButton");
+			var sizeUpButton = document.getElementById("sizeUpButton");
+			var sizeUpButtonColor = document.querySelector("#sizeUpButton");
 
-			var widthDownButton = document.getElementById("widthDownButton");
-			var widthDownButtonColor = document.querySelector("#widthDownButton");
-
-			var heightUpButton = document.getElementById("heightUpButton");
-			var heightUpButtonColor = document.querySelector("#heightUpButton");
-
-			var heightDownButton = document.getElementById("heightDownButton");
-			var heightDownButtonColor = document.querySelector("#heightDownButton");
-			//detecting whether the mouse is over width and height buttons
-			var mouseOverWidthUpButton = function(mouseEvent) {
+			var sizeDownButton = document.getElementById("sizeDownButton");
+			var sizeDownButtonColor = document.querySelector("#sizeDownButton");
+			//detecting whether the mouse is over width button
+			var mouseOverSizeUpButton = function(mouseEvent) {
 				console.log(mouseEvent);
 				onButtons = true;
 
-				widthUpButtonColor.style.backgroundColor = "rgb(0, 255, 0)";
+				sizeUpButtonColor.style.backgroundColor = "rgb(0, 255, 0)";
 			}
 
-			var mouseLeaveWidthUpButton = function(mouseEvent) {
+			var mouseLeaveSizeUpButton = function(mouseEvent) {
 				onButtons = false;
-				widthUpButtonColor.style.backgroundColor = "rgb(0, 200, 0)";
+				sizeUpButtonColor.style.backgroundColor = "rgb(0, 200, 0)";
 			}
 
 
-			widthUpButton.addEventListener("mouseover", mouseOverWidthUpButton);
-			widthUpButton.addEventListener("mouseleave", mouseLeaveWidthUpButton);
+			sizeUpButton.addEventListener("mouseover", mouseOverSizeUpButton);
+			sizeUpButton.addEventListener("mouseleave", mouseLeaveSizeUpButton);
 
 
 
 
-			var mouseOverWidthDownButton = function(mouseEvent) {
+			var mouseOverSizeDownButton = function(mouseEvent) {
 				console.log(mouseEvent);
 				onButtons = true;
 
-				widthDownButtonColor.style.backgroundColor = "rgb(255, 0, 0)";
+				sizeDownButtonColor.style.backgroundColor = "rgb(255, 0, 0)";
 			}
 
-			var mouseLeaveWidthDownButton = function(mouseEvent) {
+			var mouseLeaveSizeDownButton = function(mouseEvent) {
 				onButtons = false;
-				widthDownButtonColor.style.backgroundColor = "rgb(200, 0, 0)";
+				sizeDownButtonColor.style.backgroundColor = "rgb(200, 0, 0)";
 			}
 
 
-			widthDownButton.addEventListener("mouseover", mouseOverWidthDownButton);
-			widthDownButton.addEventListener("mouseleave", mouseLeaveWidthDownButton);
+			sizeDownButton.addEventListener("mouseover", mouseOverSizeDownButton);
+			sizeDownButton.addEventListener("mouseleave", mouseLeaveSizeDownButton);
 
 
 
 
-			var mouseOverHeightUpButton = function(mouseEvent) {
-				console.log(mouseEvent);
-				onButtons = true;
-
-				heightUpButtonColor.style.backgroundColor = "rgb(0, 255, 0)";
-			}
-
-			var mouseLeaveHeightUpButton = function(mouseEvent) {
-				onButtons = false;
-				heightUpButtonColor.style.backgroundColor = "rgb(0, 200, 0)";
-			}
 
 
-			heightUpButton.addEventListener("mouseover", mouseOverHeightUpButton);
-			heightUpButton.addEventListener("mouseleave", mouseLeaveHeightUpButton);
-
-
-
-
-			var mouseOverHeightDownButton = function(mouseEvent) {
-				console.log(mouseEvent);
-				onButtons = true;
-
-				heightDownButtonColor.style.backgroundColor = "rgb(255, 0, 0)";
-			}
-
-			var mouseLeaveHeightDownButton = function(mouseEvent) {
-				onButtons = false;
-				heightDownButtonColor.style.backgroundColor = "rgb(200, 0, 0)";
-			}
-
-
-			heightDownButton.addEventListener("mouseover", mouseOverHeightDownButton);
-			heightDownButton.addEventListener("mouseleave", mouseLeaveHeightDownButton);
-
-
+			//back button
 			var backButton = document.getElementById("back-button");
+			var backButtonHref = document.getElementById("back-button-link");
 
 			var mouseOverBackButton = function(event) {
 				console.log(event);
@@ -405,114 +483,75 @@
 			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
 
 
+			//back button warning
+			var userChoose;
 
-
-
-			//width and height counter updates
-			var drawWidth = 10;
-
-			var addWidthValue = function() {
-				drawWidth = drawWidth+10;
-
-				if (drawWidth > 200) {
-					drawWidth = drawWidth-10;
+			var question = function(event) {
+				if (confirm("Are you sure you want to go back? (your drawing will not be saved)") === true) {
+					backButtonHref.setAttribute("href", "frame2.html");
+				} else {
+					backButtonHref.removeAttribute("href");
 				}
-
-				console.log(drawWidth);
 			}
 
-			var subtractWidthValue = function() {
-				drawWidth = drawWidth-10;
+			backButton.addEventListener("click", question);
 
-				if (drawWidth < 10) {
-					drawWidth = drawWidth+10;
+
+
+
+
+			//size counter updates
+			var drawSize = 10;
+
+			var addSizeValue = function() {
+				drawSize = drawSize+10;
+
+				if (drawSize > 200) {
+					drawSize = drawSize-10;
 				}
 
-				console.log(drawWidth);
+				console.log(drawSize);
 			}
 
-			widthUpButton.addEventListener("click", addWidthValue);
-			widthDownButton.addEventListener("click", subtractWidthValue);
+			var subtractSizeValue = function() {
+				drawSize = drawSize-10;
 
-
-
-			var drawHeight = 10;
-
-			var addHeightValue = function() {
-				drawHeight = drawHeight+10;
-
-				if (drawHeight > 200) {
-					drawHeight = drawHeight-10;
+				if (drawSize < 10) {
+					drawSize = drawSize+10;
 				}
 
-				console.log(drawHeight);
+				console.log(drawSize);
 			}
 
-			var subtractHeightValue = function() {
-				drawHeight = drawHeight-10;
+			sizeUpButton.addEventListener("click", addSizeValue);
+			sizeDownButton.addEventListener("click", subtractSizeValue);
 
-				if (drawHeight < 10) {
-					drawHeight = drawHeight+10;
+
+
+
+
+			var sizeCounter = document.createElement("p");
+
+				sizeCounter.id = "sizeCounter";
+
+				var addSizeCounter = function() {
+
+					sizeCounter.textContent = "Size: " + drawSize;
+					document.getElementById("everything").appendChild(sizeCounter);
 				}
 
-				console.log(drawHeight);
-			}
-
-			heightUpButton.addEventListener("click", addHeightValue);
-			heightDownButton.addEventListener("click", subtractHeightValue);
+			sizeUpButton.addEventListener("click", addSizeCounter);
 
 
+				var subtractSizeCounter = function() {
 
-
-
-			var heightCounter = document.createElement("p");
-
-				heightCounter.id = "heightCounter";
-
-				var addHeightCounter = function() {
-
-					heightCounter.textContent = "Height: " + drawHeight;
-					document.getElementById("everything").appendChild(heightCounter);
+					sizeCounter.textContent = "Size: " + drawSize;
+					document.getElementById("everything").appendChild(sizeCounter);
 				}
 
-			heightUpButton.addEventListener("click", addHeightCounter);
-
-
-				var subtractHeightCounter = function() {
-
-					heightCounter.textContent = "Height: " + drawHeight;
-					document.getElementById("everything").appendChild(heightCounter);
-				}
-
-			heightDownButton.addEventListener("click", subtractHeightCounter);
-			window.addEventListener("load", addHeightCounter);
-			window.addEventListener("load", subtractHeightCounter);
-
-
-
-
-			var widthCounter = document.createElement("p");
-
-				widthCounter.id = "widthCounter";
-
-				var addWidthCounter = function() {
-
-					widthCounter.textContent = "Width: " + drawWidth;
-					document.getElementById("everything").appendChild(widthCounter);
-				}
-
-			widthUpButton.addEventListener("click", addWidthCounter);
-
-
-				var subtractWidthCounter = function() {
-
-					widthCounter.textContent = "Width: " + drawWidth;
-					document.getElementById("everything").appendChild(widthCounter);
-				}
-
-			widthDownButton.addEventListener("click", subtractWidthCounter);
-			window.addEventListener("load", addWidthCounter);
-			window.addEventListener("load", subtractWidthCounter);
+			sizeDownButton.addEventListener("click", subtractSizeCounter);
+			window.addEventListener("load", addSizeCounter);
+			window.addEventListener("load", subtractSizeCounter);
 
 
 
@@ -644,6 +683,7 @@
 					if (r > 255) {
 						r = r-15;
 					}
+
 					console.log(r)
 				}
 
@@ -652,6 +692,7 @@
 					if (r < 0) {
 						r = r+15;
 					}
+
 					console.log(r);
 				}
 
@@ -664,6 +705,7 @@
 					if (g > 255) {
 						g = g-15;
 					}
+
 					console.log(g)
 				}
 
@@ -672,6 +714,7 @@
 					if (g < 0) {
 						g = g+15;
 					}
+
 					console.log(g);
 				}
 
@@ -684,6 +727,7 @@
 					if (b > 255) {
 						b = b-15;
 					}
+
 					console.log(b)
 				}
 
@@ -692,6 +736,7 @@
 					if (b < 0) {
 						b = b+15;
 					}
+
 					console.log(b);
 				}
 
@@ -701,14 +746,15 @@
 
 
 
-
-
+				//clear canvas button
+				var canvas = document.getElementById("canvas");
+				var ctx = canvas.getContext("2d");
 				var clearCanvasButton = document.getElementById("clear-canvas");
+				var shapes = document.getElementById("shapes");
 
 				var clearCanvas = function(event) {
-					var newCanvas = document.createElement("canvas");
-					canvas.id = "canvas";
-					document.body.appendChild(canvas);
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+					shapes.innerHTML = "";
 				}
 
 				clearCanvasButton.addEventListener("click", clearCanvas);
@@ -728,37 +774,38 @@
 				clearCanvasButton.addEventListener("mouseleave", mouseLeaveClearCanvasButton);
 
 
-				var draw = document.getElementById("draw");
-				var erase = document.getElementById("erase");
+				//draw and erase button
+				var drawButton = document.getElementById("draw");
+				var eraseButton = document.getElementById("erase");
 
 				var mouseOverDrawButton = function(event) {
 					onButtons = true;
-					draw.style.backgroundColor = "rgb(175, 0, 175)";
+					drawButton.style.backgroundColor = "rgb(175, 0, 175)";
 				}
 
 				var mouseLeaveDrawButton = function(event) {
 					onButtons = false;
-					draw.style.backgroundColor = "rgb(155, 0, 155)";
+					drawButton.style.backgroundColor = "rgb(155, 0, 155)";
 				}
 
-				draw.addEventListener("mouseover", mouseOverDrawButton);
-				draw.addEventListener("mouseleave", mouseLeaveDrawButton);
+				drawButton.addEventListener("mouseover", mouseOverDrawButton);
+				drawButton.addEventListener("mouseleave", mouseLeaveDrawButton);
 
 
 
 
 				var mouseOverEraseButton = function(event) {
 					onButtons = true;
-					erase.style.backgroundColor = "rgb(175, 120, 175)";
+					eraseButton.style.backgroundColor = "rgb(175, 120, 175)";
 				}
 
 				var mouseLeaveEraseButton = function(event) {
 					onButtons = false;
-					erase.style.backgroundColor = "rgb(155, 100, 155)";
+					eraseButton.style.backgroundColor = "rgb(155, 100, 155)";
 				}
 
-				erase.addEventListener("mouseover", mouseOverEraseButton);
-				erase.addEventListener("mouseleave", mouseLeaveEraseButton);
+				eraseButton.addEventListener("mouseover", mouseOverEraseButton);
+				eraseButton.addEventListener("mouseleave", mouseLeaveEraseButton);
 
 
 
@@ -775,11 +822,278 @@
 				GDownButton.addEventListener("click", changeColorPreviewBox);
 				BUpButton.addEventListener("click", changeColorPreviewBox);
 				BDownButton.addEventListener("click", changeColorPreviewBox);
-				
 
 
+
+
+
+
+					//text box adder (work in progress)
+				/*	var textboxQuery = document.querySelector("#text-box");
+					var textBoxesDiv = document.getElementById("text-boxes");
+
+					var addTextbox = function(event) {
+						console.log(event.keyCode);
+						if (event.keyCode === 84) {
+							var newTextbox = document.createElement("textarea");
+							newTextbox.id = "text-box";
+							document.getElementById("text-boxes").appendChild(newTextbox);
+							newTextbox.innerHTML = "Type here";
+						} 
+					}
+
+					var mouseOnTextbox = function(event) {
+						onButtons = true;
+					}
+
+					var mouseOffTextbox = function(event) {
+						onButtons = false;
+					}
+
+					textBoxesDiv.addEventListener("mouseover", mouseOnTextbox);
+					textBoxesDiv.addEventListener("mouseleave", mouseOffTextbox);
+					window.addEventListener("keydown", addTextbox);  
+					*/
+
+
+
+
+					//current shape variable
+					var currentShape = "line";
+					var drawing = false;
+
+					//mouse over shape buttons
+					var circleButton = document.getElementById("circle-button");
+					var squareButton = document.getElementById("square-button");
+					/*var triangleButton = document.getElementById("triangle-button");
+					var heartButton = document.getElementById("heart-button");*/
+
+					var mouseOverCircleButton = function(event) {
+						circleButton.style.backgroundColor = "rgb(250, 195, 40)";
+					}
+
+					var mouseLeaveCircleButton = function(event) {
+						circleButton.style.backgroundColor = "rgb(210, 155, 0)";
+						console.log(event);
+					}
+
+					var circleButtonClicked = function(event) {
+						currentShape = "circle";
+						usingShapes = true;
+						console.log(currentShape);
+					}
+
+					var mouseOverSquareButton = function(event) {
+						squareButton.style.backgroundColor = "rgb(90, 140, 225)";
+					}
+
+					var mouseLeaveSquareButton = function(event) {
+						squareButton.style.backgroundColor = "rgb(50, 100, 185)";
+					}
+
+					var squareButtonClicked = function(event) {
+						currentShape = "square";
+						usingShapes = true;
+						console.log(currentShape);
+					}
+
+					/*var mouseOverTriangleButton = function(event) {
+						triangleButton.style.backgroundColor = "rgb(40, 225, 225)";
+					}
+
+					var mouseLeaveTriangleButton = function(event) {
+						triangleButton.style.backgroundColor = "rgb(0, 185, 185)";
+					}
+
+					var mouseOverHeartButton = function(event) {
+						heartButton.style.backgroundColor = "rgb(225, 90, 90)";
+					}
+
+					var mouseLeaveHeartButton = function(event) {
+						heartButton.style.backgroundColor = "rgb(185, 50, 50)";
+					}*/
+
+					circleButton.addEventListener("mouseover", mouseOverCircleButton);
+					circleButton.addEventListener("mouseleave", mouseLeaveCircleButton);
+					squareButton.addEventListener("mouseover", mouseOverSquareButton);
+					squareButton.addEventListener("mouseleave", mouseLeaveSquareButton);
+					/*triangleButton.addEventListener("mouseover", mouseOverTriangleButton);
+					triangleButton.addEventListener("mouseleave", mouseLeaveTriangleButton);
+					heartButton.addEventListener("mouseover", mouseOverHeartButton);
+					heartButton.addEventListener("mouseleave", mouseLeaveHeartButton);*/
+					circleButton.addEventListener("click", circleButtonClicked);
+					squareButton.addEventListener("click", squareButtonClicked);
+
+
+					//shape up down width height buttons
+					var widthUpButton = document.getElementById("shape-width-up");
+					var widthDownButton = document.getElementById("shape-width-down");
+					var heightUpButton = document.getElementById("shape-height-up");
+					var heightDownButton = document.getElementById("shape-height-down");
+
+					var mouseOverWidthUpButton = function(event) {
+						widthUpButton.style.backgroundColor = "rgb(0, 185, 0)";
+					}
+
+					var mouseLeaveWidthUpButton = function(event) {
+						widthUpButton.style.backgroundColor = "rgb(0, 155, 0)";
+					}
+
+					widthUpButton.addEventListener("mouseover", mouseOverWidthUpButton);
+					widthUpButton.addEventListener("mouseleave", mouseLeaveWidthUpButton);
+
+
+
+
+					var mouseOverWidthDownButton = function(event) {
+						widthDownButton.style.backgroundColor = "rgb(185, 0, 0)";
+					}
+
+					var mouseLeaveWidthDownButton = function(event) {
+						widthDownButton.style.backgroundColor = "rgb(155, 0, 0)";
+					}
+
+					widthDownButton.addEventListener("mouseover", mouseOverWidthDownButton);
+					widthDownButton.addEventListener("mouseleave", mouseLeaveWidthDownButton);
+
+
+
+
+					var mouseOverHeightUpButton = function(event) {
+						heightUpButton.style.backgroundColor = "rgb(0, 185, 0)";
+					}
+
+					var mouseLeaveHeightUpButton = function(event) {
+						heightUpButton.style.backgroundColor = "rgb(0, 155, 0)";
+					}
+
+					heightUpButton.addEventListener("mouseover", mouseOverHeightUpButton);
+					heightUpButton.addEventListener("mouseleave", mouseLeaveHeightUpButton);
+
+
+
+
+					var mouseOverHeightDownButton = function(event) {
+						heightDownButton.style.backgroundColor = "rgb(185, 0, 0)";
+					}
+
+					var mouseLeaveHeightDownButton = function(event) {
+						heightDownButton.style.backgroundColor = "rgb(155, 0, 0)";
+					}
+
+					heightDownButton.addEventListener("mouseover", mouseOverHeightDownButton);
+					heightDownButton.addEventListener("mouseleave", mouseLeaveHeightDownButton);
+
+
+
+					//width and height counter updates
+					var drawWidth = 10;
+
+					var addWidthValue = function() {
+						drawWidth = drawWidth+10;
+
+						if (drawWidth > 200) {
+							drawWidth = drawWidth-10;
+						}
+
+						console.log(drawWidth);
+					}
+
+					var subtractWidthValue = function() {
+						drawWidth = drawWidth-10;
+
+						if (drawWidth < 10) {
+							drawWidth = drawWidth+10;
+						}
+
+						console.log(drawWidth);
+					}
+
+					widthUpButton.addEventListener("click", addWidthValue);
+					widthDownButton.addEventListener("click", subtractWidthValue);
+
+
+
+					var drawHeight = 10;
+
+					var addHeightValue = function() {
+						drawHeight = drawHeight+10;
+
+						if (drawHeight > 200) {
+							drawHeight = drawHeight-10;
+						}
+
+						console.log(drawHeight);
+					}
+
+					var subtractHeightValue = function() {
+						drawHeight = drawHeight-10;
+
+						if (drawHeight < 10) {
+							drawHeight = drawHeight+10;
+						} 
+
+						console.log(drawHeight);
+					}
+
+					heightUpButton.addEventListener("click", addHeightValue);
+					heightDownButton.addEventListener("click", subtractHeightValue);
+
+
+
+
+					//width and height counters
+					var widthCounter = document.createElement("p");
+					var heightCounter = document.createElement("p");
+
+					widthCounter.id = "width-counter";
+					heightCounter.id = "height-counter";
+
+					var addWidthCounter = function() {
+
+						widthCounter.textContent = "Width: " + drawWidth;
+						document.getElementById("everything").appendChild(widthCounter);
+					}
+
+					widthUpButton.addEventListener("click", addWidthCounter);
+
+
+					var subtractWidthCounter = function() {
+
+						widthCounter.textContent = "Width: " + drawWidth;
+						document.getElementById("everything").appendChild(widthCounter);
+					}
+
+					var addHeightCounter = function() {
+
+						heightCounter.textContent = "Height: " + drawHeight;
+						document.getElementById("everything").appendChild(heightCounter);
+					}
+
+					heightUpButton.addEventListener("click", addHeightCounter);
+
+
+					var subtractHeightCounter = function() {
+
+						heightCounter.textContent = "Height: " + drawHeight;
+						document.getElementById("everything").appendChild(heightCounter);
+					}
+
+					widthDownButton.addEventListener("click", subtractWidthCounter);
+					heightDownButton.addEventListener("click", subtractHeightCounter);
+					window.addEventListener("load", addWidthCounter);
+					window.addEventListener("load", subtractWidthCounter);
+					window.addEventListener("load", addHeightCounter);
+					window.addEventListener("load", subtractHeightCounter);
+
+
+
+
+
+					//draw and erase button functions
 					var draw = document.getElementById("draw");
 					var erase = document.getElementById("erase");
+
 
 					var changeToErase = function(event) {
 						r = 255;
@@ -789,6 +1103,8 @@
 					}
 
 					var changeToDraw = function(event) {
+						currentShape = "line";
+						usingShapes = false;
 						r = 0;
 						g = 0;
 						b = 0;
@@ -801,21 +1117,28 @@
 
 
 
-				//actual drawing code
+				//actual drawing code + shapes
 				var buttons = document.getElementById("buttons");
 				var circle = document.querySelector("#drawCircle");
 				var canvas = document.querySelector("#canvas");
 				var ctx = canvas.getContext("2d");
+				var shapesDiv = document.getElementById("shapes");
 
-				var drawing = false;
 
 				buttons.addEventListener("mousedown", event => {
 					onButtons = true;
 					drawing = false;
+					usingShapes = false;
 					console.log(drawing);
 				});
 
-				window.addEventListener("mousedown", event=> {
+				buttons.addEventListener("mouseup", event => {
+					drawing = true;
+					usingShapes = true;
+				});
+
+
+				window.addEventListener("mousedown", event => {
 					if (onButtons === false) {
 						drawing = true;
 						console.log(drawing);
@@ -825,6 +1148,7 @@
 				
 
 				window.addEventListener("mouseup", event => {
+					ctx.beginPath();
 					if (drawing === true) {
 						drawing = false;
 					}
@@ -833,32 +1157,68 @@
 
 
 
+
+
+			
+
+				canvas.height = window.innerHeight;
+				canvas.width = window.innerWidth;
+
 				var circleDraw = function(event) {
-					if (drawing === true && onButtons === false) {
+					if (usingShapes === true && currentShape === "circle") {
+						console.log(currentShape);
 
 						var newCircle = document.createElement("h1");
 						newCircle.id = "drawCircle";
-						document.body.appendChild(newCircle);
-						newCircle.style.top = event.clientY - 36 + "px";
-						newCircle.style.left = event.clientX - 14 + "px";
+						shapes.appendChild(newCircle);
+						newCircle.style.top = event.clientY - 28 + "px";
+						newCircle.style.left = event.clientX - 5 + "px";
 						newCircle.style.width = drawWidth + "px";
 						newCircle.style.height = drawHeight + "px";
 						newCircle.style.backgroundColor = "rgb" + "(" + r + "," + g + "," + b + ")";
 					}
+				}
 
+
+					window.addEventListener("mousedown", circleDraw);
+
+				var squareDraw = function(event) {
+					if (usingShapes === true && currentShape === "square") {
+						console.log(currentShape);
+
+						var newSquare = document.createElement("h1");
+						newSquare.id = "drawSquare";
+						shapes.appendChild(newSquare);
+						newSquare.style.top = event.clientY - 28 + "px";
+						newSquare.style.left = event.clientX - 5 + "px";
+						newSquare.style.width = drawWidth + "px";
+						newSquare.style.height = drawHeight + "px";
+						newSquare.style.backgroundColor = "rgb" + "(" + r + "," + g + "," + b + ")";
+					}
+				}
+
+
+					window.addEventListener("mousedown", squareDraw);
+
+
+				var drawLine = function(event) {
+					if (drawing === true && currentShape === "line") {
+						ctx.lineWidth = drawSize;
+						ctx.lineCap = "round";
+						ctx.strokeStyle = "rgb" + "(" + r + "," + g + "," + b + ")";
+						ctx.lineTo(event.clientX, event.clientY);
+						ctx.stroke();
+						ctx.beginPath();
+						ctx.moveTo(event.clientX, event.clientY);
+					}
 					if (drawing === false) {
 						return;
 					}
-						
-					}
-
-
-					window.addEventListener("mousemove", circleDraw);
-					window.addEventListener("mousedown", circleDraw);
+				}
 
 
 
-
+				canvas.addEventListener("mousemove", drawLine);
 
 
 
@@ -875,7 +1235,8 @@
 
 
 
-					/*note to self: maybe fix the bug where you can draw outside of the entire page.*/
+
+					/*note to self: maybe fix the bug where you can draw outside of the entire page. make a fully working text box. make the shape up down width height buttons work*/
 		</script>
 	</body>
 </html>
