@@ -47,21 +47,6 @@
 				top: 200px;
 			}
 
-			#useless-button {
-				position: absolute;
-				left: 650px;
-				top: 500px;
-				background-color: rgb(155, 155, 155);
-				width: 100px;
-				height: 100px;
-			}
-
-			#times-clicked {
-				position: absolute;
-				left: 650px;
-				top: 600px;
-			}
-
 		</style>
 	</head>
 
@@ -70,10 +55,7 @@
 
 		<a href="index.html"><button id="back-button">Back</button></a>
 		<a href="frame3.html"><button id="next-button">Next</button></a>
-
-
-		<button id="useless-button">Useless Button</button>
-		<h2 id="times-clicked"></h2>
+		
 
 		<h2 id="Instructions">*press and hold the mouse to draw<br><br>*WARNING: the paint position may not always be relative to your mouse!</h2>
 
@@ -113,38 +95,6 @@
 			backButton.addEventListener("mouseleave", backButtonLeave);
 			nextButton.addEventListener("mouseover", changeNextButtonColor);
 			nextButton.addEventListener("mouseleave", nextButtonLeave);
-
-
-
-			var uselessButton = document.getElementById("useless-button");
-
-			var mouseOverUselessButton = function(event) {
-				uselessButton.style.backgroundColor = "rgb(185, 185, 185)";
-			}
-
-			var mouseLeaveUselessButton = function(event) {
-				uselessButton.style.backgroundColor = "rgb(155, 155, 155)";
-			}
-
-			uselessButton.addEventListener("mouseover", mouseOverUselessButton);
-			uselessButton.addEventListener("mouseleave", mouseLeaveUselessButton);
-
-			var clickedCounter = document.getElementById("times-clicked");
-
-			var timesClicked = 0;
-
-			var timesClickedUp = function(event) {
-				timesClicked ++;
-			}
-
-			var timesClickedShow = function(event) {
-				clickedCounter.innerHTML = "times clicked: " + timesClicked;
-			}
-
-			uselessButton.addEventListener("click", timesClickedUp);
-			uselessButton.addEventListener("click", timesClickedShow);
-			window.addEventListener("load", timesClickedShow);
-
 			
 			
 		</script>

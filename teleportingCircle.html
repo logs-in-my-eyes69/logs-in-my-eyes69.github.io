@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TeleportingCircle</title>
+
+		<style>
+
+			#backButton {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 90px;
+				height: 70px;
+				background-color: rgb(0, 130, 106);
+			}
+
+			body {
+				background-color: rgb(52, 87, 180);
+			}
+
+			#telCircle {
+				position: absolute;
+				top: 300px;
+				left: 700px;
+				background-color: rgb(0, 0, 0);
+				border-radius: 50px;
+				width: 40px;
+				height: 40px;
+			}
+
+			#instructions {
+				text-align: center;
+			}
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<a href="extrasFrame.html"> <button id="backButton">Back</button> </a>
+
+		<h1 id="instructions">Click the circle to make it teleport</h1>
+
+		<p id="telCircle"></p>
+
+		<script>
+
+			var backButton = document.getElementById("backButton");
+
+			var mouseOverBackButton = function() {
+				backButton.style.backgroundColor = "rgb(20, 150, 126)";
+			}
+
+			var mouseLeaveBackButton = function() {
+				backButton.style.backgroundColor = "rgb(0, 130, 106)";
+			}
+
+			backButton.addEventListener("mouseover", mouseOverBackButton);
+			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
+
+
+			var circle = document.getElementById("telCircle");
+
+			var teleport = function() {
+				var tpSpotX = Math.floor(Math.random(0, 1) * 1400);
+				var tpSpotY = Math.floor(Math.random(0, 1) * 600);
+
+				circle.style.left = tpSpotX + "px";
+				circle.style.top = tpSpotY + "px";
+			}
+
+			circle.addEventListener("click", teleport);
+			
+		</script>
+
+	</body>
+</html>

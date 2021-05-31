@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>StonkTrading</title>
+
+		<style>
+
+			body {
+				background-color: rgb(255, 132, 72);
+				height: 5700px;
+			}
+
+			#backButton {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 90px;
+				height: 70px;
+				background-color: rgb(0, 130, 106);
+			}
+
+			#currentPrice {
+				text-align: center;
+			}
+
+			#buy {
+				position: absolute;
+				width: 90px;
+				height: 70px;
+				left: 500px;
+				top: 200px;
+				background-color: rgb(50, 100, 50);
+			}
+
+			#sell {
+				position: absolute;
+				width: 90px;
+				height: 70px;
+				left: 860px;
+				top: 200px;
+				background-color: rgb(50, 100, 50);
+			}
+
+			#timeUntil {
+				position: absolute;
+				left: 600px;
+				top: 550px;
+			}
+
+			#stonkWalletH {
+				position: absolute;
+				left: 1100px;
+				top: 80px;
+			}
+
+			#moneyWalletH {
+				position: absolute;
+				left: 1100px;
+				top: 130px;
+			}
+
+			#goToShop {
+				position: absolute;
+				left: 1100px;
+				top: 230px;
+				width: 120px;
+				height: 100px;
+				background-color: rgb(0, 80, 180);
+			}
+
+			#shopTitle {
+				position: absolute;
+				top: 5000px;
+				left: 630px;
+				font-size: 70px;
+			}
+
+			#jerry {
+				position: absolute;
+				left: 415px;
+				top: 5200px;
+				width: 120px;
+				height: 100px;
+			}
+
+			#jerryIMG {
+				width: 60px;
+				height: 80px;
+			}
+
+			#toGame {
+				position: absolute;
+				left: 1000px;
+				top: 5100px;
+				width: 120px;
+				height: 100px;
+				background-color: rgb(0, 80, 180);
+			}
+
+			#jerryPrice {
+				position: absolute;
+				left: 415px;
+				top: 5280px;
+			}
+
+			#jerry-image {
+				position: absolute;
+				width: 100px;
+				height: 150px;
+				top: 20px;
+				left: 300px;
+				cursor: pointer;
+			}
+
+			#buyStonkMan {
+				position: absolute;
+				left: 955px;
+				top: 5300px;
+				width: 220px;
+				height: 200px;
+			}
+
+			#stonkManIMG {
+				width: 120px;
+				height: 100px;
+			}
+
+			#stonkManPrice {
+				position: absolute;
+				left: 955px;
+				top: 5480px;
+			}
+
+			#magicPotato {
+				position: absolute;
+				left: 580px;
+				top: 5200px;
+				width: 120px;
+				height: 100px;
+			}
+
+			#potatoPrice {
+				position: absolute;
+				left: 580px;
+				top: 5280px;
+			}
+
+			#potatoIMG {
+				width: 68px;
+				height: 68px;
+			}
+
+			/*#-Undecided- {
+				position: absolute;
+				width: 120px;
+				height: 100px;
+				left: 415px;
+				top: 5400px;
+			}
+
+			#-UndecidedPrice- {
+				position: absolute;
+				left: 415px;
+				top: 5480px;
+			}
+
+			#-Undecided- {
+				position: absolute;
+				left: 580px;
+				top: 5400px;
+				width: 120px;
+				height: 100px;
+			}
+
+			#-UndecidedPrice- {
+				position: absolute;
+				left: 580px;
+				top: 5480px;
+			}*/
+			
+		</style>
+
+	</head>
+
+	<body>
+
+		<a href="extrasFrame.html"> <button id="backButton">Back</button> </a>
+
+		<h1 id="currentPrice">Current Stonk Price:</h1>
+
+		<button id="buy">Buy 1 Stonk</button>
+		<button id="sell">Sell 1 Stonk</button>
+
+		<h2 id="timeUntil">Time until price change is<br>10 seconds</h2>
+		<h2 id="stonkWalletH">Stonks: 1</h2>
+		<h2 id="moneyWalletH">Money: $0</h2>
+
+
+
+		<a href="#shopTitle"><button id="goToShop">Go To Shop</button></a>
+		<a href="#currentPrice"> <button id="toGame">Go To Game</button> </a>
+		<h1 id="shopTitle">Shop!!!</h1>
+
+		<button id="jerry">Buy Jerry Image<img src="Jerry.png" id="jerryIMG"></button>
+		<h1 id="jerryPrice">$100</h1>
+
+		<button id="magicPotato">Buy Magical Potato<img src="magicPotato.png" id="potatoIMG"></button>
+		<h1 id="potatoPrice">$10000</h1>
+
+		<!--<button id="M5s">Undecided</button>
+		<h1 id="M5sPrice">$null</h1>
+
+		<button id="A5s">Undecided</button>
+		<h1 id="A5sPrice">$null</h1>-->
+
+
+		<button id="buyStonkMan">Buy Stonks Man <img src="StonkMan.JPEG" id="stonkManIMG"></button>
+		<h1 id="stonkManPrice">$1,000,000</h1>
+
+
+
+		<script>
+
+			var backButton = document.getElementById("backButton");
+
+			var mouseOverBackButton = function() {
+				backButton.style.backgroundColor = "rgb(20, 150, 126)";
+			}
+
+			var mouseLeaveBackButton = function() {
+				backButton.style.backgroundColor = "rgb(0, 130, 106)";
+			}
+
+			backButton.addEventListener("mouseover", mouseOverBackButton);
+			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
+
+
+
+			var buyButton = document.getElementById("buy");
+
+			var mouseOverBuyButton = function() {
+				buyButton.style.backgroundColor = "rgb(70, 120, 70)";
+			}
+
+			var mouseLeaveBuyButton = function() {
+				buyButton.style.backgroundColor = "rgb(50, 100, 50)";
+			}
+
+			buyButton.addEventListener("mouseover", mouseOverBuyButton);
+			buyButton.addEventListener("mouseleave", mouseLeaveBuyButton);
+
+
+
+
+			var sellButton = document.getElementById("sell");
+
+			var mouseOverSellButton = function() {
+				sellButton.style.backgroundColor = "rgb(70, 120, 70)";
+			}
+
+			var mouseLeaveSellButton = function() {
+				sellButton.style.backgroundColor = "rgb(50, 100, 50)";
+			}
+
+			sellButton.addEventListener("mouseover", mouseOverSellButton);
+			sellButton.addEventListener("mouseleave", mouseLeaveSellButton);
+
+
+
+
+
+			var timeUntil = document.getElementById("timeUntil");
+			var newStonk = document.getElementById("currentPrice");
+			var moneyWallet = 0;
+			var stonkWallet = 1;
+			var timeUntilNextChange = 10;
+			var stonkPrice;
+			var StonkManPower = 0;
+			var maxStonk = 50;
+
+
+			var changeStonkIn = function() {
+				timeUntilNextChange = timeUntilNextChange-1;
+
+				timeUntil.innerHTML = "Time until price change is <br> " + timeUntilNextChange + " seconds";
+
+				if (timeUntilNextChange < 1) {
+					timeUntilNextChange = 30;
+					var changeStonkPrice = Math.floor(Math.random(0, 1) * maxStonk);
+					stonkPrice = changeStonkPrice;
+					console.log(changeStonkPrice);
+					console.log("test");
+					console.log(stonkPrice);
+					newStonk.innerHTML = "Current Stonk Price: " + "$" + changeStonkPrice;
+				}
+			}
+
+			window.setInterval(changeStonkIn, 1000);
+
+
+
+
+			var stonkWalletH = document.getElementById("stonkWalletH");
+			var moneyWalletH = document.getElementById("moneyWalletH");
+
+			var buyStonk = function() {
+				if (moneyWallet >= stonkPrice) {
+					alert("You Bought 1 Stonk!!!");
+					stonkWallet = stonkWallet+1;
+					moneyWallet = moneyWallet-stonkPrice;
+					stonkWalletH.innerHTML = "Stonks: " + stonkWallet;
+					moneyWalletH.innerHTML = "Money: " + "$" + moneyWallet;
+				} else {
+					alert("Insufficient Funds");
+				}
+			}
+
+			buyButton.addEventListener("click", buyStonk);
+
+
+
+
+
+			var sellStonk = function() {
+				if (stonkWallet > 0) {
+					alert("You Sold 1 Stonk!!!");
+					stonkWallet = stonkWallet-1;
+					moneyWallet = moneyWallet+stonkPrice+StonkManPower;
+					stonkWalletH.innerHTML = "Stonks: " + stonkWallet;
+					moneyWalletH.innerHTML = "Money: " + "$" + moneyWallet;
+				} else {
+					alert("Insufficient Stonks");
+				}	
+			}
+
+			sellButton.addEventListener("click", sellStonk);
+
+
+
+
+
+
+
+
+
+
+
+
+			var toStoreButton = document.getElementById("goToShop");
+
+			var mouseOverToStoreButton = function() {
+				toStoreButton.style.backgroundColor = "rgb(20, 100, 200)";
+			}
+
+			var mouseLeaveToStoreButton = function() {
+				toStoreButton.style.backgroundColor = "rgb(0, 80, 180)";
+			}
+
+			toStoreButton.addEventListener("mouseover", mouseOverToStoreButton);
+			toStoreButton.addEventListener("mouseleave", mouseLeaveToStoreButton);
+
+			var toGameButton = document.getElementById("toGame");
+
+			var mouseOverToGameButton = function() {
+				toGameButton.style.backgroundColor = "rgb(20, 100, 200)";
+			}
+
+			var mouseLeaveToGameButton = function() {
+				toGameButton.style.backgroundColor = "rgb(0, 80, 180)";
+			}
+
+			toGameButton.addEventListener("mouseover", mouseOverToGameButton);
+			toGameButton.addEventListener("mouseleave", mouseLeaveToGameButton);
+
+
+
+			var jerryBTN = document.getElementById("jerry");
+
+			var buyJerryImage = function() {
+				if (moneyWallet >= 100) {
+					if (confirm("This creates a minecraft villager that makes a villager noise when you click it (Are you sure you want to buy this?)")) {
+						moneyWallet = moneyWallet-100;
+						var newJerryImage = document.createElement("img");
+						newJerryImage.id = "jerry-image";
+						newJerryImage.src = "Jerry.png";
+						document.body.appendChild(newJerryImage);
+						moneyWalletH.innerHTML = "Money: " + "$" + moneyWallet;
+						alert("You Just Bought A Jerry!!!");
+					}
+				} else {
+					alert("Insufficient Funds");
+				}
+
+
+				var makeHurr = function() {
+					var newAudioHurr = new Audio("hurr.mp3");
+
+					newAudioHurr.play();
+				}
+
+				newJerryImage.addEventListener("click", makeHurr);
+
+			}
+
+			jerryBTN.addEventListener("click", buyJerryImage);
+
+
+
+			var stonkButton = document.getElementById("buyStonkMan");
+
+			var buyStonkMan = function() {
+				if (moneyWallet >= 1000000) {
+					if (confirm("This gives you a guaranteed $50 each time you sell a stonk (Are you sure you want to buy this?)")) {
+							moneyWallet = moneyWallet-1000000;
+							moneyWalletH.innerHTML = "Money: " + "$" + moneyWallet;
+							StonkManPower = StonkManPower+50;
+							alert("You Have Just Bought The Most Powerful Item In The Game. You Will Now Always Get $50 When You Sell Your Stonk (+$50 Each time you buy this)");
+					}
+				} else {
+					alert("Insufficient Funds");
+				}
+			}
+
+			stonkButton.addEventListener("click", buyStonkMan);
+
+
+
+
+
+			var potatoButton = document.getElementById("magicPotato");
+
+			var buyMagicPotato = function() {
+				if (moneyWallet >= 10000) {
+					if (confirm("This increases the maximum selling and buying price by 50 each time you buy it (Are you sure you want to buy this?)")) {
+						moneyWallet = moneyWallet-10000;
+						moneyWalletH.innerHTML = "Money: " + "$" + moneyWallet;
+						maxStonk = maxStonk+50;
+						alert("You Just Bought A Magical Potato!!!")
+					}
+				} else {
+					alert("Insufficient Funds")
+				}
+			}
+
+			potatoButton.addEventListener("click", buyMagicPotato);
+
+		</script>
+
+	</body>
+</html>

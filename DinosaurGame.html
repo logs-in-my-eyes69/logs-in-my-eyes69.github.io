@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>DinosaurGame</title>
+
+		<style>
+
+			#backButton {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 90px;
+				height: 70px;
+				background-color: rgb(0, 130, 106);
+			}
+
+			body {
+				background-color: rgb(100, 123, 119);
+			}
+
+			#title {
+				text-align: center;
+			}
+
+			#gameOutline {
+				position: absolute;
+				width: 800px;
+				height: 300px;
+				left: 330px;
+				top: 110px;
+				background-color: rgb(255, 255, 255);
+			}
+
+			#line1 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 700px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line2 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 600px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line3 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 500px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line4 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 400px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line5 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 300px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line6 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 200px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line7 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 100px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line8 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 0px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line9 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: 800px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#line10 {
+				position: absolute;
+				width: 100px;
+				height: 1px;
+				top: 230px;
+				left: -100px;
+				background-color: rgb(0, 0, 0);
+			}
+
+			#coverExtra1 {
+				position: absolute;
+				left: 0px;
+				top: 94px;
+				width: 330px;
+				height: 300px;
+				background-color: rgb(100, 123, 119);
+			}
+
+			#coverExtra2 {
+				position: absolute;
+				left: 1130px;
+				top: 94px;
+				width: 100px;
+				height: 300px;
+				background-color: rgb(100, 123, 119);
+			}
+
+			#player {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 50px;
+				top: 184px;
+				background-color: rgb(0, 255, 0);
+			}
+
+			#cactus {
+				position: absolute;
+				left: 800px;
+				top: 194px;
+				width: 30px;
+				height: 40px;
+				background-color: rgb(255, 0, 0);
+			}
+
+			#currentScore {
+				position: absolute;
+				width: 100px;
+				height: 35px;
+				left: 700px;
+				top: 0px;
+				background-color: rgb(155, 155, 155);
+			}
+
+			#highScore {
+				position:  absolute;
+				width: 100px;
+				height: 35px;
+				left: 600px;
+				top: 0px;
+				background-color:  rgb(155, 155, 155);
+			}
+			
+		</style>
+
+	</head>
+	
+	<body>
+
+		<a href="extrasFrame.html"> <button id="backButton">Back</button> </a>
+
+		<h1 id="title">The Dinosaur Game</h1>
+
+
+		<div id="gameOutline">
+
+			<h3 id="line1">__________</h3>
+			<h3 id="line2">__________</h3>
+			<h3 id="line3">__________</h3>
+			<h3 id="line4">__________</h3>
+			<h3 id="line5">__________</h3>
+			<h3 id="line6">__________</h3>
+			<h3 id="line7">__________</h3>
+			<h3 id="line8">__________</h3>
+			<h3 id="line9">__________</h3>
+			<h3 id="line10">__________</h3>
+
+			<p id="player"></p>
+			<p id="cactus"></p>
+
+			<p id="currentScore">Score: 0</p>
+			<p id="highScore">High Score: 0</p>
+
+		</div>
+
+		<p id="coverExtra1"></p>
+		<p id="coverExtra2"></p>
+
+		<script>
+
+			var backButton = document.getElementById("backButton");
+
+			var mouseOverBackButton = function() {
+				backButton.style.backgroundColor = "rgb(20, 150, 126)";
+			}
+
+			var mouseLeaveBackButton = function() {
+				backButton.style.backgroundColor = "rgb(0, 130, 106)";
+			}
+
+			backButton.addEventListener("mouseover", mouseOverBackButton);
+			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
+
+
+			
+			var ground1 = document.getElementById("line1");
+			var ground2 = document.getElementById("line2");
+			var ground3 = document.getElementById("line3");
+			var ground4 = document.getElementById("line4");
+			var ground5 = document.getElementById("line5");
+			var ground6 = document.getElementById("line6");
+			var ground7 = document.getElementById("line7");
+			var ground8 = document.getElementById("line8");
+			var ground9 = document.getElementById("line9");
+			var ground10 = document.getElementById("line10");
+			var game = document.getElementById("gameOutline");
+
+
+			var gameStart = false;
+
+			var leftGround1 = 700;
+			var leftGround2 = 600;
+			var leftGround3 = 500;
+			var leftGround4 = 400;
+			var leftGround5 = 300;
+			var leftGround6 = 200;
+			var leftGround7 = 100;
+			var leftGround8 = 100;
+			var leftGround9 = 0;
+			var leftGround10 = -100;
+
+			var startGame = function() {
+				gameStart = true;
+			}
+
+			game.addEventListener("click", startGame);
+
+			var moveGround = function() {
+				
+				if (gameStart === true) {
+					leftGround1 = leftGround1-2;
+					leftGround2 = leftGround2-2;
+					leftGround3 = leftGround3-2;
+					leftGround4 = leftGround4-2;
+					leftGround5 = leftGround5-2;
+					leftGround6 = leftGround6-2;
+					leftGround7 = leftGround7-2;
+					leftGround8 = leftGround8-2;
+					leftGround9 = leftGround9-2;
+					leftGround10 = leftGround10-2;
+
+					
+	 				ground1.style.left = leftGround1 + "px";
+	 				ground2.style.left = leftGround2 + "px";
+	 				ground3.style.left = leftGround3 + "px";
+	 				ground4.style.left = leftGround4 + "px";
+	 				ground5.style.left = leftGround5 + "px";
+	 				ground6.style.left = leftGround6 + "px";
+	 				ground7.style.left = leftGround7 + "px";
+	 				ground8.style.left = leftGround8 + "px";
+	 				ground9.style.left = leftGround9 + "px";
+	 				ground10.style.left = leftGround10 + "px";
+
+		 			if (leftGround1 < -100) {
+	 					leftGround1 = 800;
+	 				} else if (leftGround2 < -100) {
+	 					leftGround2 = 800;
+	 				} else if (leftGround3 < -100) {
+	 					leftGround3 = 800;
+	 				} else if (leftGround4 < -100) {
+	 					leftGround4 = 800;
+	 				} else if (leftGround5 < -100) {
+	 					leftGround5 = 800;
+	 				} else if (leftGround6 < -100) {
+	 					leftGround6 = 800;
+	 				} else if (leftGround7 < -100) {
+	 					leftGround7 = 800;
+	 				} else if (leftGround8 < -100) {
+	 					leftGround8 = 800;
+	 				} else if (leftGround9 < -100) {
+	 					leftGround9 = 800;
+	 				} else if (leftGround10 < -100) {
+	 					leftGround10 = 800;
+	 				}
+
+ 				}
+				
+			}
+
+			var countdown = window.setInterval(moveGround, 1)
+
+
+
+
+			var player = document.getElementById("player");
+
+			var jumpUp = 184;//134
+			var jumpFall = 184;
+
+			var Down = false;
+
+			var playerTop = 0;
+
+			var jumpDetect = function(event) {
+				if (event.keyCode === 32) {
+					Down = true;
+				} 
+			}
+
+			window.addEventListener("keypress", jumpDetect);
+
+
+			var playerJump = function(event) {
+				if (Down === true && gameStart === true) {
+					var jumpUpI = function() {
+							jumpFall = 104;
+
+							jumpUp = jumpUp-1.5;
+
+							player.style.top = jumpUp + "px";
+
+							playerTop = player.style.top;
+
+							setTimeout(function() {
+
+							}, );
+
+					}
+
+					var up = window.setInterval(jumpUpI, 1);
+
+					var jumpFallI = function() {
+						if (jumpUp <= 104) {
+						window.clearInterval(up);
+
+						jumpFall = jumpFall+1;
+
+						player.style.top = jumpFall + "px";
+
+
+
+						playerTop = player.style.top;
+
+						
+
+						if (jumpFall > 183) {
+							window.clearInterval(down);
+						}
+
+					}
+					}
+
+					var down = window.setInterval(jumpFallI, 1);
+				}
+
+				
+
+				Down = false;
+
+				jumpUp = 184;
+				jumpFall = 184;
+			}
+				
+
+			window.addEventListener("keypress", playerJump);
+
+
+
+
+
+
+
+
+
+
+
+			var cactusLeft = 800;
+			var cactusTop = 194;
+
+			var randomNumber;
+			var cactus = document.getElementById("cactus");
+
+			var chooseRandomNumber = function() {
+				if (gameStart === true) {
+					var cactusAppear = Math.floor(Math.random() * 2);
+					randomNumber = cactusAppear;
+				}
+			}
+
+			window.setInterval(chooseRandomNumber, 500);
+
+
+
+			var moveCactus = function() {
+
+				if (gameStart === true) {
+						
+					cactusLeft = cactusLeft-2;
+
+					cactus.style.left = cactusLeft + "px";
+
+					if (cactusLeft < -50 && randomNumber === 0) {
+						cactusLeft = 800;
+					}
+					
+				}
+			}
+
+			var startMoveCactus = window.setInterval(moveCactus, 1);
+
+
+			var checkCollision = function() {
+				var isPlayerThereTop = parseFloat(player.style.top);
+				var isPlayerThereLeft = parseFloat(player.style.left);
+				var isCactusThere = parseFloat(cactus.style.left);
+
+
+				if (isCactusThere > 50 && isCactusThere < 100) {
+					if (isPlayerThereTop <= 138) {
+						gameStart = true;
+					} else {
+						gameStart = false;
+						alert("game Over :(");
+						cactus.style.left = 800 + "px";
+						cactusLeft = 800;
+						lastScore = score;
+						score = 0;
+						scoreBoard.innerHTML = "Score: 0";
+					}
+				}
+			}
+
+			window.setInterval(checkCollision, 50);
+
+
+
+
+
+			var scoreBoard = document.getElementById("currentScore");
+
+			var score = 0;
+			var lastScore = 0;
+
+			var changeScore = function() {
+				if (gameStart === true) {
+					score = score+1;
+					scoreBoard.innerHTML = "Score: " + score;
+				}
+			}
+
+			window.setInterval(changeScore, 200);
+
+			var highScoreBoard = document.getElementById("highScore");
+
+			var highScore = 0;
+
+			var newHighScore = function() {
+				if (gameStart === false && lastScore > highScore) {
+					highScore = lastScore;
+					highScoreBoard.innerHTML = "High Score: " + highScore;
+				}
+			}
+
+			window.setInterval(newHighScore, 200);
+
+
+
+			/*maybe fix it so if you hold or spam the spacebar, the player doesnt have a sezure*/
+		
+			
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<title>uslelessButton</title>
+
+		<style>
+
+			body {
+				background-color: rgb(109, 150, 221);
+			}
+
+			#useless-button {
+				position: absolute;
+				left: 650px;
+				top: 400px;
+				background-color: rgb(155, 155, 155);
+				width: 200px;
+				height: 200px;
+				font-size: 20px;
+			}
+
+			#times-clicked {
+				position: absolute;
+				font-size: 60px;
+				left: 550px;
+				top: 60px;
+			}
+
+			#backButton {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 90px;
+				height: 70px;
+				background-color: rgb(0, 130, 106);
+			}
+			
+		</style>
+	</head>
+
+	<body>
+
+		<a href="extrasFrame.html"> <button id="backButton">Back</button> </a>
+
+		<button id="useless-button">Useless Button</button>
+		<h2 id="times-clicked"></h2>
+
+		<script>
+
+			var uselessButton = document.getElementById("useless-button");
+
+			var mouseOverUselessButton = function(event) {
+				uselessButton.style.backgroundColor = "rgb(185, 185, 185)";
+			}
+
+			var mouseLeaveUselessButton = function(event) {
+				uselessButton.style.backgroundColor = "rgb(155, 155, 155)";
+			}
+
+			uselessButton.addEventListener("mouseover", mouseOverUselessButton);
+			uselessButton.addEventListener("mouseleave", mouseLeaveUselessButton);
+
+			var clickedCounter = document.getElementById("times-clicked");
+
+			var timesClicked = 0;
+
+			var timesClickedUp = function(event) {
+				timesClicked ++;
+			}
+
+			var timesClickedShow = function(event) {
+				clickedCounter.innerHTML = "times clicked: " + timesClicked;
+			}
+
+			uselessButton.addEventListener("click", timesClickedUp);
+			uselessButton.addEventListener("click", timesClickedShow);
+			window.addEventListener("load", timesClickedShow);
+
+
+
+
+			var backButton = document.getElementById("backButton");
+
+			var mouseOverBackButton = function() {
+				backButton.style.backgroundColor = "rgb(20, 150, 126)";
+			}
+
+			var mouseLeaveBackButton = function() {
+				backButton.style.backgroundColor = "rgb(0, 130, 106)";
+			}
+
+			backButton.addEventListener("mouseover", mouseOverBackButton);
+			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
+			
+		</script>
+
+	</body>
+</html>

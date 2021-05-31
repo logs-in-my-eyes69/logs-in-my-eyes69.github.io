@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+	<title>otherGamesPage</title>
+
+		<style>
+			
+			body {
+				background-color: rgb(146, 180, 97);
+			}
+
+			#backButton {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 90px;
+				height: 70px;
+				background-color: rgb(0, 130, 106);
+			}
+
+			#title {
+				text-align: center;
+				font-size: 50px;
+			}
+
+			#uselessButton {
+				position: absolute;
+				width: 110px;
+				height: 90px;
+				left: 315px;
+				top: 180px;
+				background-color: rgb(206, 129, 182);
+			}
+
+			#infiniteCounter {
+				position: absolute;
+				width: 110px;
+				height: 90px;
+				left: 475px;
+				top: 180px;
+				background-color: rgb(124, 147, 231);
+			}
+
+			#teleportingCircle {
+				position: absolute;
+				background-color: rgb(144, 119, 141);
+				width: 110px;
+				height: 90px;
+				left: 635px;
+				top: 180px;
+			}
+
+			#stonkTrading {
+				position: absolute;
+				background-color: rgb(150, 145, 16);
+				width: 310px;
+				height: 290px;
+				left: 795px;
+				top: 180px;
+				font-size: 40px;
+			}
+
+			#dinoGame {
+				position: absolute;
+				left: 315px;
+				top: 310px;
+				width: 110px;
+				height: 90px;
+				background-color: rgb(193, 38, 148);
+			}
+
+			#warning {
+				position: absolute;
+				text-align: center;
+				top: 80%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+	<h1 id="title">Minigames!</h1>
+
+	<a href="index.html"> <button id="backButton">Back</button> </a>
+	<a href="uselessButton.html"> <button id="uselessButton">Useless Button</button> </a>
+	<a href="infiniteCounter.html"> <button id="infiniteCounter">Infinite Counter</button> </a>
+	<a href="teleportingCircle.html"> <button id="teleportingCircle">Teleporting Circle</button> </a>
+	<a href="stonkTrading.html"> <button id="stonkTrading">Stonk Trading (My Personal Favourite)</button> </a>
+	<a href="DinosaurGame.html"> <button id="dinoGame">Dinosaur Game</button> </a>
+
+	<h1 id="warning">Warning: <br>Most of these minigames are still in development. I will still be adding things to them and working on them</h1>
+	
+
+		<script>
+
+			var backButton = document.getElementById("backButton");
+
+			var mouseOverBackButton = function() {
+				backButton.style.backgroundColor = "rgb(20, 150, 126)";
+			}
+
+			var mouseLeaveBackButton = function() {
+				backButton.style.backgroundColor = "rgb(0, 130, 106)";
+			}
+
+			backButton.addEventListener("mouseover", mouseOverBackButton);
+			backButton.addEventListener("mouseleave", mouseLeaveBackButton);
+
+
+			var uselessButtonEnter = document.getElementById("uselessButton");
+
+			var mouseOverUselessButton = function() {
+				uselessButtonEnter.style.backgroundColor = "rgb(226, 149, 202)";
+			}
+
+			var mouseLeaveUselessButton = function() {
+				uselessButtonEnter.style.backgroundColor = "rgb(206, 129, 182)";
+			}
+
+			uselessButtonEnter.addEventListener("mouseover", mouseOverUselessButton);
+			uselessButtonEnter.addEventListener("mouseleave", mouseLeaveUselessButton);
+
+
+
+
+			var infiniteCounter = document.getElementById("infiniteCounter");
+
+			var mouseOverInfiniteCounter = function() {
+				infiniteCounter.style.backgroundColor = "rgb(144, 167, 251)";
+			}
+
+			var mouseLeaveInfiniteCounter = function() {
+				infiniteCounter.style.backgroundColor = "rgb(124, 147, 231)";
+			}
+
+			infiniteCounter.addEventListener("mouseover", mouseOverInfiniteCounter);
+			infiniteCounter.addEventListener("mouseleave", mouseLeaveInfiniteCounter);
+
+
+
+			var teleportingCircle = document.getElementById("teleportingCircle");
+
+			var mouseOverTeleportingCircle = function() {
+				teleportingCircle.style.backgroundColor = "rgb(164, 139, 161)";
+			}
+
+			var mouseLeaveTeleportingCircle = function() {
+				teleportingCircle.style.backgroundColor = "rgb(144, 119, 141)";
+			}
+
+			teleportingCircle.addEventListener("mouseover", mouseOverTeleportingCircle);
+			teleportingCircle.addEventListener("mouseleave", mouseLeaveTeleportingCircle);
+
+
+
+
+			var stonkTrade = document.getElementById("stonkTrading");
+
+			var mouseOverStonkTrade = function() {
+				stonkTrade.style.backgroundColor = "rgb(170, 165, 36)";
+			}
+
+			var mouseLeaveStonkTrade = function() {
+				stonkTrade.style.backgroundColor = "rgb(150, 145, 16)";
+			}
+
+			stonkTrade.addEventListener("mouseover", mouseOverStonkTrade);
+			stonkTrade.addEventListener("mouseleave", mouseLeaveStonkTrade);
+
+
+
+
+
+			var dinoGame = document.getElementById("dinoGame");
+
+			var mouseOverDinoGame = function() {
+				dinoGame.style.backgroundColor = "rgb(213, 58, 168)";
+			}
+
+			var mouseLeaveDinoGame = function() {
+				dinoGame.style.backgroundColor = "rgb(193, 38, 148)";
+			}
+
+			dinoGame.addEventListener("mouseover", mouseOverDinoGame);
+			dinoGame.addEventListener("mouseleave", mouseLeaveDinoGame);
+
+			
+		</script>
+	</body>
+</html>
