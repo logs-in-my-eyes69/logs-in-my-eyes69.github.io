@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	<meta charset="utf-8">
+	<title>ellasSchoolThing</title>
+
+	<style>
+
+		body {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+		
+		#exerciseBox {
+			position: absolute;
+			top: 38%;
+			left: 43%;
+
+			color: rgb(0, 0, 0);
+		}
+
+		#rollButton {
+			position: absolute;
+			width: 10%;
+			height: 10%;
+			top: 70%;
+			left: 43%;
+		}
+
+		#iFrame {
+			position: absolute;
+			left: 37%;
+		}
+
+		#doExercise {
+			position: absolute;
+			left: 70%;
+			top: 3%;
+		}
+
+		#wiiFit {
+			position: absolute;
+			width: 30%;
+			height: 80%;
+		}
+
+		#fitText {
+			position: absolute;
+			top: 85%;
+			left: 2%;
+		}
+
+	</style>
+
+	</head>
+
+	<body>
+
+		<h1 id="doExercise">Do each exercise for 1 minute!</h1>
+
+		<h1 id="exerciseBox">Your Exercise Is:<br><br></h1>
+
+		<button id="rollButton">Roll</button>
+
+		<img id="wiiFit" src="wiiFitTrainer.png">
+		<h1 id="fitText">^<br>Low quality wii fit person</h1>
+
+		<iframe id="iFrame" width="400" height="260" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+		<script>
+
+			var exerciseBox = document.getElementById("exerciseBox");
+			var rollButton = document.getElementById("rollButton");
+			var iFrame = document.getElementById("iFrame");
+
+
+			var exerciseArray = ["pushups", "arm circles", "plank", "squat", "lunge", "situp", "burpee", "step-up", "inchworm to pushup", "tuck-jump", "bear crawl", "mountain climber", "wall sit", "calf raise", "superman", "side plank"];
+
+			var chooseRandomExercise = function() {
+				var random = Math.floor(Math.random() * 15);
+				console.log(random);
+
+				setTimeout(function() {
+					exerciseBox.innerHTML = "Your Exercise Is: <br><br>plank";
+
+					setTimeout(function() {
+						exerciseBox.innerHTML = "Your Exercise Is: <br><br>wall sit";
+
+						setTimeout(function() {
+							exerciseBox.innerHTML = "Your Exercise Is: <br><br>pushups";
+
+							setTimeout(function() {
+								exerciseBox.innerHTML = "Your Exercise Is: <br><br>calf raise";
+
+								setTimeout(function() {
+									exerciseBox.innerHTML = "Your Exercise Is: <br><br>side plank";
+
+									setTimeout(function() {
+										exerciseBox.innerHTML = "Your Exercise Is: <br><br>side plank";
+
+										setTimeout(function() {
+											exerciseBox.innerHTML = "Your Exercise Is: <br><br>burpee";
+
+											setTimeout(function() {
+												exerciseBox.innerHTML = "Your Exercise Is: <br><br>plank";
+
+												setTimeout(function() {
+													exerciseBox.innerHTML = "Your Exercise Is: <br><br>arm circles";
+
+													setTimeout(function() {
+														exerciseBox.innerHTML = "Your Exercise Is: <br><br>side plank";
+
+														setTimeout(function() {
+															exerciseBox.innerHTML = "Your Exercise Is: <br><br>side plank";
+
+															setTimeout(function() {
+																exerciseBox.innerHTML = "Your Exercise Is: <br><br>superman";
+
+																setTimeout(function() {
+																	exerciseBox.innerHTML = "Your Exercise Is: <br><br>situp";
+
+																	setTimeout(function() {
+																		exerciseBox.innerHTML = "Your Exercise Is: <br><br>squat";
+
+																		setTimeout(function() {
+																			exerciseBox.innerHTML = "Your Exercise Is: <br><br>" + exerciseArray[random];
+																			
+
+
+																			if (random === 1) {
+																				iFrame.src = "https://www.youtube.com/embed/vOsm1Sdgxvw";
+																			} else if (random === 0) {
+																				iFrame.src = "https://www.youtube.com/embed/_l3ySVKYVJ8";
+																			} else if (random === 2) {
+																				iFrame.src = "https://www.youtube.com/embed/pvIjsG5Svck";
+																			} else if (random === 3) {
+																				iFrame.src = "https://www.youtube.com/embed/C_VtOYc6j5c";
+																			} else if (random === 4) {
+																				iFrame.src = "https://www.youtube.com/embed/L8fvypPrzzs";
+																			} else if (random === 5) {
+																				iFrame.src = "https://www.youtube.com/embed/_HDZODOx7Zw";
+																			} else if (random === 6) {
+																				iFrame.src = "https://www.youtube.com/embed/auBLPXO8Fww";
+																			} else if (random === 7) {
+																				iFrame.src = "https://www.youtube.com/embed/5qjqDHOUh-A";
+																			} else if (random === 8) {
+																				iFrame.src = "https://www.youtube.com/embed/2OFMP_LhcB8";
+																			} else if (random === 9) {
+																				iFrame.src = "https://www.youtube.com/embed/qGk0MTjwLPo";
+																			} else if (random === 10) {
+																				iFrame.src = "https://www.youtube.com/embed/t8XLor7unqU";
+																			} else if (random === 11) {
+																				iFrame.src = "https://www.youtube.com/embed/zT-9L3CEcmk";
+																			} else if (random === 12) {
+																				iFrame.src = "https://www.youtube.com/embed/-cdph8hv0O0";
+																			} else if (random === 13) {
+																				iFrame.src = "https://www.youtube.com/embed/zNcD6cq1jnM";
+																			} else if (random === 14) {
+																				iFrame.src = "https://www.youtube.com/embed/J9zXkxUAfUA";
+																			} else if (random === 15) {
+																				iFrame.src = "https://www.youtube.com/embed/IkMmABQ9SkM";
+																			}
+																			
+
+																		}, 700);
+																	}, 700);
+																}, 700);
+															}, 700);
+														}, 600);
+													}, 600);
+												}, 500);
+											}, 500);
+										}, 400);
+									}, 300);
+								}, 300);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 100); 
+			}
+
+			rollButton.addEventListener("click", chooseRandomExercise);
+
+
+			
+		</script>
+
+	</body>
+</html>
